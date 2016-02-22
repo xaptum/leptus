@@ -27,6 +27,7 @@
   {applications, [
                   kernel,
                   stdlib,
+		  msgpack,
                   cowboy
                  ]},
   {mod, {leptus_app, []}},
