@@ -215,6 +215,8 @@ invoke(Pid, F, A) ->
 -spec call_cowboy_req(atom(), [any()], cowboy_req:req()) -> any().
 call_cowboy_req(reply, Args, Req) ->
     call_cowboy_req(reply, Args ++ [Req]);
+call_cowboy_req(body, Args, Req) ->
+    get_vr( cowboy_req:body(Req, Args) );
 call_cowboy_req(F, [], Req) ->
     call_cowboy_req(F, [Req]);
 call_cowboy_req(F, [H|T], Req) ->
